@@ -56,8 +56,7 @@ def calc():
 
     venus_miles = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
 
-    threading.Timer(1.0, calc).start()
-    print("{:,}".format(round(mars_miles)), "    ", "{:,}".format(round(mercury_miles)), "    ", "{:,}".format(round(venus_miles)))
-calc()
+    result = ("{:,}".format(round(mars_miles)), "{:,}".format(round(mercury_miles)), "{:,}".format(round(venus_miles)))
 
-
+    return result
+ 
