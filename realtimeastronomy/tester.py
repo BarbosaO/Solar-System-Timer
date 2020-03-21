@@ -1,9 +1,8 @@
 import datetime
 import threading
-from planets import Mars, Mercury, Venus
-from calculator import calculateData
-import tkinter as Tkinter 
-
+from realtimeastronomy.calculator import calculateData
+from realtimeastronomy import planets
+from apscheduler.schedulers.background import BackgroundScheduler
 
 def calc():
     # calculating UT and d
@@ -21,7 +20,7 @@ def calc():
     
 
     # mars calculations
-    new_Mars = Mars()
+    new_Mars = planets.Mars()
 
     N_mars = new_Mars.N + new_Mars.N_ * d
     i_mars = new_Mars.i + new_Mars.i_ * d
@@ -33,7 +32,7 @@ def calc():
     mars_miles = calculateData(N_mars, i_mars, w_mars, a_mars, e_mars, M_mars)
 
     # mercury calculations
-    new_mercury = Mercury()
+    new_mercury = planets.Mercury()
 
     N_mercury = new_mercury.N + new_mercury.N_ * d
     i_mercury = new_mercury.i + new_mercury.i_ * d
@@ -45,7 +44,7 @@ def calc():
     mercury_miles = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
 
     # venus calculations
-    new_venus = Venus()
+    new_venus = planets.Venus()
 
     N_venus = new_venus.N + new_venus.N_ * d
     i_venus = new_venus.i + new_venus.i_ * d
@@ -56,7 +55,7 @@ def calc():
 
     venus_miles = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
 
-    result = ("{:,}".format(round(mars_miles)), "{:,}".format(round(mercury_miles)), "{:,}".format(round(venus_miles)))
-
+    #threading.Timer(1, calc).start()
+    result = ["{:,}".format(round(mars_miles)), "{:,}".format(round(mercury_miles)), "{:,}".format(round(venus_miles))]
     return result
  
