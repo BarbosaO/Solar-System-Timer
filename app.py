@@ -2,7 +2,6 @@ from flask import Flask, render_template, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
 from realtimeastronomy.tester import calc
 
-
 app = Flask(__name__)
 
 @app.route('/')
