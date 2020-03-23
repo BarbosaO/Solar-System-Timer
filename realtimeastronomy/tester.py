@@ -12,13 +12,15 @@ def calc():
     month = currentDT.month
     day = currentDT.day
 
+    # get day zero of J2000 cut off. Assume that it was on December 31, 1999 at 17:00 hours
     d_0 = 367 * 1999 - (7 * (1999 + ((12 + 9) / 12))) / 4 - (3 * ((1999 + (12 - 9) / 7) / 100 + 1)) / 4 + (275 * 12) / 9 + 29.50 - 730515
 
     #d = 367 * year - (7 * (year + ((month + 9) / 12))) / 4 - (3 * ((year + (month - 9) / 7) / 100 + 1)) / 4 + (275 * month) / 9 + day - 730515
     d = 367 * year - (7 * (year + ((month + 9) / 12))) / 4  + (275 * month) / 9 + day - 730530
-    d += UT/24 + (-1 * d_0) / 10
     
-
+    # add cut off to compensate for the assumed start of J2000. This will give more accurate readings.
+    d += UT/24 + (-1 * d_0) / 10 
+    
     # mars calculations
     new_Mars = planets.Mars()
 
@@ -29,7 +31,7 @@ def calc():
     e_mars = new_Mars.e + new_Mars.e_ * d
     M_mars = new_Mars.M + new_Mars.M_ * d
 
-    mars_miles = calculateData(N_mars, i_mars, w_mars, a_mars, e_mars, M_mars)
+    mars_values = calculateData(N_mars, i_mars, w_mars, a_mars, e_mars, M_mars)
 
     # mercury calculations
     new_mercury = planets.Mercury()
@@ -41,7 +43,7 @@ def calc():
     e_mercury = new_mercury.e + new_mercury.e_ * d
     M_mercury = new_mercury.M + new_mercury.M_ * d
 
-    mercury_miles = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
+    mercury_values = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
 
     # venus calculations
     new_venus = planets.Venus()
@@ -53,9 +55,13 @@ def calc():
     e_venus = new_venus.e + new_venus.e_ * d
     M_venus = new_venus.M + new_venus.M_ * d
 
-    venus_miles = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
+    venus_values = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
 
     #threading.Timer(1, calc).start()
-    result = ["{:,}".format(round(mars_miles)), "{:,}".format(round(mercury_miles)), "{:,}".format(round(venus_miles))]
+    result = [
+        ["{:,}".format(round(mercury_values[3])), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6)], 
+        ["{:,}".format(round(venus_values[3])), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6)],
+        ["{:,}".format(round(mars_values[3])), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)], 
+        ] 
     return result
  

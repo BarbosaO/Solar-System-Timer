@@ -3,7 +3,7 @@ function executeQuery() {
         url: "/home",
         type: "POST",
         success: function(resp){
-            $('div#home').html(resp.data);
+            $('div#calculations').html(resp.data);
         },
         complete: function(data){
             setTimeout(executeQuery, 1000);

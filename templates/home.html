@@ -2,24 +2,133 @@
 <html lang="en">
 <meta charset=utf-8> 
   <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-      <!-- Optional theme -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
-      <title>Test</title> 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
+    
+    <title>Test</title> 
   </head>
   <body>
-
     <main>
-      <div>
-        <h1 class="planet">{{calculations[0]}}</h1>
-        <h1 class="planet">{{calculations[1]}}</h1>
-        <h1 class="planet">{{calculations[2]}}</h1>
-      </div>
+        <div class="row">
+        <div class="col-xs-4">
+            <!-- START MERCURY PANEL -->
+            <div class="panel panel-default mercury-panel">
+                <div class="panel-heading mercury-heading">Mercury
+                    <img class="mercury-img" src="/static/mercury.png">
+                </div>
+                
+                <div class="panel-body mercury-body">
+                    <div class="row">
+                        <div class="col-xs-6 mercury"  style="padding-left: 0px;">Distance:</div>
+                        <div class="col-xs-6 mercury-dist">{{calculations[0][0]}}</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 mercury-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 mercury-h-dist">{{calculations[0][1]}}</div> 
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-6 mercury-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 mercury-h-dist">{{calculations[0][2]}}</div> 
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 mercury-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 mercury-h-dist">{{calculations[0][3]}}</div> 
+                </div>
+                </div>
+            </div>
+            <!-- END MERCURY PANEL  -->
+
+            <!-- JUPITER PANEL -->
+            <div class="panel panel-default jupiter-panel">
+                <div class="panel-heading jupiter-heading">Jupiter
+                    <img class="jupiter-img" src="/static/jupiter.png">
+                </div>
+                
+                <div class="panel-body jupiter-body">
+                    <div class="row">
+                        <div class="col-xs-6 jupiter"  style="padding-left: 0px;">Distance:</div>
+                        <div class="col-xs-6 jupiter-dist">{{calculations[0][0]}}</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 jupiter-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 jupiter-h-dist">{{calculations[0][1]}}</div> 
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-6 jupiter-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 jupiter-h-dist">{{calculations[0][2]}}</div> 
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 jupiter-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 jupiter-h-dist">{{calculations[0][3]}}</div> 
+                </div>
+                </div>
+            </div>
+            <!-- END JUPITER PANEL -->
+        </div>
+        <div class="col-xs-4">
+            <!-- START VENUS PANEL -->
+            <div class="panel panel-default venus-panel">
+                <div class="panel-heading venus-heading">Venus
+                    <img class="venus-img" src="/static/venus.png">
+                </div>
+                
+                <div class="panel-body venus-body">
+                    <div class="row">
+                        <div class="col-xs-6 venus"  style="padding-left: 0px;">Distance:</div>
+                        <div class="col-xs-6 venus-dist">{{calculations[1][0]}}</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 venus-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 venus-h-dist">{{calculations[1][1]}}</div> 
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-6 venus-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 venus-h-dist">{{calculations[1][2]}}</div> 
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 venus-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 venus-h-dist">{{calculations[1][3]}}</div> 
+                </div>
+                </div>
+            </div>
+            <!-- END VENUS PANEL -->
+        </div>
+
+        <div class="col-xs-4">
+            <!-- MARS PANEL -->
+            <div class="panel panel-default mars-panel">
+                <div class="panel-heading mars-heading">Mars
+                    <img class="mars-img" src="/static/mars.png">
+                </div>
+                
+                <div class="panel-body mars-body">
+                    <div class="row">
+                        <div class="col-xs-6 mars"  style="padding-left: 0px;">Distance:</div>
+                        <div class="col-xs-6 mars-dist">{{calculations[2][0]}}</div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 mars-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 mars-h-dist">{{calculations[2][1]}}</div> 
+                    </div>
+                    <div class="row">
+                    <div class="col-xs-6 mars-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 mars-dist">{{calculations[2][2]}}</div> 
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 mars-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 mars-h-dist">{{calculations[2][3]}}</div> 
+                </div>
+                </div>
+            </div>
+            <!-- END MARS PANEL -->
+        </div>
+    </div>
 
     </main>
   </body>

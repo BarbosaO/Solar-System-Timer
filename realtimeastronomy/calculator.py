@@ -47,7 +47,15 @@ def calculateData(N, i, w, a, e, M):
     zh = r * (math.sin(toRadians * (v+w)) * math.sin(toRadians * i))
 
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
-    rhMi = rh * 92955807.26743
 
-    return rhMi
+    # converting factor from 1 AU to 1 mile
+    milesPerAu = 92955807.26743
+
+    # get current distance in miles
+    rhMi = rh * milesPerAu
+
+    # store returning values
+    values = [xh, yh, zh, rhMi]
+
+    return values
     

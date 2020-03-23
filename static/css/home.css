@@ -1,19 +1,19 @@
+
 body{
-    background-color: rgb(11, 29, 131);
+    background-color: #021631;
 }
 
 h1.planet{
-    color: whitesmoke;
+    color: rgb(27, 26, 26);
     padding-top: 50px;
     
 }
 
-  .navbar {
+  .navbar{
   border-radius: 0;
   border: none;
-  margin-bottom: 0;
+  margin-bottom: 200px;
   min-height: 20px;
-  width: 100;
 
 }
 
@@ -31,5 +31,264 @@ h1.planet{
   height: 100%;
 }
 
-  
+
+.row{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.panel{
+  border-width: 3px;
+  border-color: #010b19;
+  word-wrap: break-word;
+}
+
+ /* ========== MERCURY STYLING =============*/
+
+.panel-default.mercury-panel .mercury-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#3C4258;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.mercury-panel .mercury-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #3C4258;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.mercury-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#97979F;
+    color:#3C4258;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.mercury-heading .mercury-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.mercury-body
+{
+    background-color: #CECCD1;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+    
+}
+
+
+
+
+/* ============ VENUS STYLING ============= */
+
+
+
+.panel-default.venus-panel .venus-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#663926;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.venus-panel .venus-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #663926;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.venus-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color: #B5A7A7;
+    color:#504E51;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.venus-heading .venus-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.venus-body
+{
+    background-color:#C88B3A;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+/* ========= MARS STYLING ============= */
+
+
+
+.panel-default.mars-panel .mars-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color: #800000;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.mars-panel .mars-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #800000;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.mars-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color: #5e2e24;
+    color:#0F0800;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.mars-heading .mars-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.mars-body
+{
+    background-color:#b85a46;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+
+/* ========= JUPITER STYLING ========== */
+
+
+.panel-default.jupiter-panel .jupiter-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#757e61;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.jupiter-panel .jupiter-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #757e61;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.jupiter-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#A79C86;
+    color:#25281f;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.jupiter-heading .jupiter-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.jupiter-body{
+    background-color: #D39C7E;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+    
+}
+
   
