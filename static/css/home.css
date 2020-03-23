@@ -240,7 +240,7 @@ h1.planet{
   font-weight: bolder; 
   font-size: 30px;
   display: inline;
-  color:#757e61;
+  color:#7a4639;
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
   text-align: right;
@@ -252,7 +252,7 @@ h1.planet{
   font-family: 'Trebuchet MS'; 
   font-size: 30px;
   display: inline;
-  color: #757e61;
+  color: #7a4639;
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
   text-align: right;
@@ -288,7 +288,181 @@ h1.planet{
     font-family: 'Trebuchet MS';
     font-size: 20px; 
     font-weight: bolder; 
-    
 }
 
+/* ========= SATURN STYLING ========== */
+
+
+.panel-default.saturn-panel .saturn-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#7B7869;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.saturn-panel .saturn-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #7B7869;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.saturn-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#7B7869;
+    color:#343E47;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.saturn-heading .saturn-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.saturn-body{
+    background-color: #C5AB6E;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+/* ========= URANUS STYLING ========== */
+
+.panel-default.uranus-panel .uranus-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#93B8BE;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.uranus-panel .uranus-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #93B8BE;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.uranus-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#65868B;
+    color:#36747d;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.uranus-heading .uranus-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.uranus-body{
+    background-color: #BBE1E4;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+/* ========= NEPTUNE STYLING ========== */
+
+.panel-default.neptune-panel .neptune-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#3E54E8;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.neptune-panel .neptune-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #3E54E8;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.neptune-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#1931d2;
+    color:#212354;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.neptune-heading .neptune-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.neptune-body{
+    background-color: #3E66F9;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
   
