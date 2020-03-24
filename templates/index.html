@@ -7,7 +7,7 @@
         <title>Test</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
     </head>
-    <body>
+      <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
@@ -20,18 +20,42 @@
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li ><a href="home">Home</a></li>
+                  <li><a href="home">Home</a></li>
                   <li><a href="home">About</a></li>
                 </ul>
               </div>
             </div>
         </nav>
+
+        <section class="information-sec">
+          <div class="jumbotron jumbotron-fluid">
+              <h1 class="display-4">Real Time Astronomy</h1>
+              <p class="intro">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <hr class="my-4">
+              <h2 class= "units"> Units of Measurement</h2>
+
+              <label id=radioMI class="container">MI
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+              </label>
+
+              <label id=radioKM class="container">KM
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+              </label>
+
+              <label id=radioAU class="container">AU
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+              </label>
+          </div>    
+        </section>
         
         <div>
             <div id="calculations"></div>
             <script src="{{ url_for('static', filename='js/app.js')}}"></script>
         </div>
-    </body>
+      </body>
 
     
 
