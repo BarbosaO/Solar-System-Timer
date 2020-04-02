@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 import datetime, time
 import threading
 from realtimeastronomy.calculator import calculateData
 from realtimeastronomy import planets
-=======
-import datetime
-import threading
-from realtimeastronomy.calculator import calculateData
-from realtimeastronomy import planets
-from apscheduler.schedulers.background import BackgroundScheduler
->>>>>>> c05423174aae03118ce515c34f27f007feb54935
 
 def calc():
     # calculating UT and d
@@ -33,8 +25,6 @@ def calc():
     millsSince2000 =  946684800000
 
     d = round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
-
-    print(d)
     
     # mars calculations
     new_Mars = planets.Mars()
