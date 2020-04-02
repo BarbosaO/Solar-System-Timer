@@ -1,0 +1,571 @@
+
+body{
+    background-color: #021631;
+}
+
+h1.planet{
+    color: rgb(27, 26, 26);
+    padding-top: 50px;
+    
+}
+
+  .navbar{
+  border-radius: 0;
+  border: none;
+  margin-bottom: 100px;
+  min-height: 20px;
+
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #ffffff;
+  font-family: 'Trebuchet MS';
+  font-size: 17px;
+  font-weight: 300;
+  padding: 10px 25px 20px 25px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  background-color: #444444;
+  transition: 0.7s all linear;
+  height: 100%;
+}
+
+/* JUMBOTRON */
+
+.information-sec .jumbotron-fluid{
+  background-color: rgb(255, 254, 255);
+  border-radius: 2px;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-width: 3px;
+  border-color: #010b19;
+  height: 380px;
+}
+
+.jumbotron-fluid > .display-4{
+  position: relative;
+  float: center;
+  font-size: 66px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.jumbotron-fluid > .intro{
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+
+.jumbotron-fluid > .units{
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*  ========= CUSTOM CHECKBOX =========*/
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: rgba(13, 24, 175, 0.897);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 7px;
+	left: 7px;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* ========= END CHECKBOX =========*/
+
+
+.row{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.panel{
+  border-width: 3px;
+  border-color: #010b19;
+  word-wrap: break-word;
+}
+
+ /* ========== MERCURY STYLING =============*/
+
+.panel-default.mercury-panel .mercury-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#3C4258;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.mercury-panel .mercury-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #3C4258;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.mercury-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#97979F;
+    color:#3C4258;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.mercury-heading .mercury-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.mercury-body
+{
+    background-color: #CECCD1;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+    
+}
+
+
+
+
+/* ============ VENUS STYLING ============= */
+
+
+
+.panel-default.venus-panel .venus-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#663926;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.venus-panel .venus-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #663926;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.venus-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color: #B5A7A7;
+    color:#504E51;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.venus-heading .venus-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.venus-body
+{
+    background-color:#C88B3A;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+/* ========= MARS STYLING ============= */
+
+
+
+.panel-default.mars-panel .mars-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color: #800000;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.mars-panel .mars-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #800000;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.mars-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color: #5e2e24;
+    color:#0F0800;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.mars-heading .mars-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.mars-body
+{
+    background-color:#b85a46;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+
+/* ========= JUPITER STYLING ========== */
+
+
+.panel-default.jupiter-panel .jupiter-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#7a4639;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.jupiter-panel .jupiter-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #7a4639;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.jupiter-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#A79C86;
+    color:#25281f;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.jupiter-heading .jupiter-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.jupiter-body{
+    background-color: #D39C7E;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+/* ========= SATURN STYLING ========== */
+
+
+.panel-default.saturn-panel .saturn-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#7B7869;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.saturn-panel .saturn-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #7B7869;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.saturn-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#7B7869;
+    color:#343E47;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.saturn-heading .saturn-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.saturn-body{
+    background-color: #C5AB6E;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+/* ========= URANUS STYLING ========== */
+
+.panel-default.uranus-panel .uranus-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#93B8BE;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.uranus-panel .uranus-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #93B8BE;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.uranus-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#65868B;
+    color:#36747d;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.uranus-heading .uranus-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.uranus-body{
+    background-color: #BBE1E4;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+
+
+/* ========= NEPTUNE STYLING ========== */
+
+.panel-default.neptune-panel .neptune-dist {
+  position: relative;
+  font-family: 'Trebuchet MS'; 
+  font-weight: bolder; 
+  font-size: 30px;
+  display: inline;
+  color:#3E54E8;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ }
+
+ .panel-default.neptune-panel .neptune-h-dist {
+  position: relative; 
+  font-family: 'Trebuchet MS'; 
+  font-size: 30px;
+  display: inline;
+  color: #3E54E8;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #010b19; /* Can be changed in the live sample */
+  text-align: right;
+  right: -12px;
+ 
+ }
+
+.panel > .panel-heading.neptune-heading{
+    background-image: none;
+    font-weight: bolder; 
+    background-color:#1931d2;
+    color:#212354;
+    font-family: 'Trebuchet MS'; 
+    font-size: 30px;
+    border-width: 3px;
+    border-color: #010b19;
+    border-radius: 0;
+
+}
+
+.panel > .panel-heading.neptune-heading .neptune-img{
+  position: relative;
+  float: right;
+  height: 55px;
+  width: 55px;
+  top: -8px;
+}
+.panel > .panel-body.neptune-body{
+    background-color: #3E66F9;
+    padding-left: 0px;
+    padding-right: 0px;
+    color:#0F0800;
+    font-family: 'Trebuchet MS';
+    font-size: 20px; 
+    font-weight: bolder; 
+}
+  
