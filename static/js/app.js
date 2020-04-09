@@ -12,12 +12,14 @@ function executeQuery() {
             $('#mercury-hz').text(resp['calculations'][0][3]);
             
             // update value for venus
+            $('#venus-dist-text').text(resp['text'])
             $('#venus-dist').text(resp['distance'][1]);
             $('#venus-hx').text(resp['calculations'][1][1]);
             $('#venus-hy').text(resp['calculations'][1][2]);
             $('#venus-hz').text(resp['calculations'][1][3]);
 
             // update value for mars
+            $('#mars-dist-text').text(resp['text'])
             $('#mars-dist').text(resp['distance'][2]);
             $('#mars-hx').text(resp['calculations'][2][1]);
             $('#mars-hy').text(resp['calculations'][2][2]);
@@ -50,9 +52,11 @@ $(document).ready(function(){
                         $('#mercury-dist').text(resp['distance'][0]);
                         
                         // update value for venus
+                        $('#venus-dist-text').text(resp['text'])
                         $('#venus-dist').text(resp['distance'][1]);
             
                         // update value for mars
+                        $('#mars-dist-text').text(resp['text'])
                         $('#mars-dist').text(resp['distance'][2]);
                     },
                     complete: function(data){
@@ -78,9 +82,11 @@ $(document).ready(function(){
                         $('#mercury-dist').text(resp['distance'][0]);
                         
                         // update value for venus
+                        $('#venus-dist-text').text(resp['text'])
                         $('#venus-dist').text(resp['distance'][1]);
             
                         // update value for mars
+                        $('#mars-dist-text').text(resp['text'])
                         $('#mars-dist').text(resp['distance'][2]);
                     },
                     complete: function(data){
