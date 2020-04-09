@@ -6,12 +6,11 @@ import math
 
 
 def rev(angle):
-    if(angle < 0 or angle> 360):
-        n = (int)(angle / 360)
+    while(angle <= 0 or angle >= 360):
         if(angle < 0):
-            angle += 360 * n
+            angle += 360
         else:
-            angle -= 360 * n
+            angle -= 360
     return angle
 
 def calc():
@@ -37,27 +36,29 @@ def calc():
 
     d = round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
     
+
     # mercury calculations
     new_mercury = planets.Mercury()
 
-    N_mercury = new_mercury.N + new_mercury.N_ * d
+    N_mercury = rev(new_mercury.N + new_mercury.N_ * d)
     i_mercury = new_mercury.i + new_mercury.i_ * d
-    w_mercury = new_mercury.w + new_mercury.w_ * d
+    w_mercury = rev(new_mercury.w + new_mercury.w_ * d)
     a_mercury = new_mercury.a
     e_mercury = new_mercury.e + new_mercury.e_ * d
-    M_mercury = new_mercury.M + new_mercury.M_ * d
+    M_mercury = rev(new_mercury.M + new_mercury.M_ * d)
+
 
     mercury_values = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
 
     # venus calculations
     new_venus = planets.Venus()
 
-    N_venus = new_venus.N + new_venus.N_ * d
+    N_venus = rev(new_venus.N + new_venus.N_ * d)
     i_venus = new_venus.i + new_venus.i_ * d
-    w_venus = new_venus.w + new_venus.w_ * d
+    w_venus = rev(new_venus.w + new_venus.w_ * d)
     a_venus = new_venus.a
     e_venus = new_venus.e + new_venus.e_ * d
-    M_venus = new_venus.M + new_venus.M_ * d
+    M_venus = rev(new_venus.M + new_venus.M_ * d)
 
     venus_values = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
 
@@ -82,7 +83,7 @@ def calc():
     w_saturn = new_Saturn.w + new_Saturn.w_ * d
     a_saturn = new_Saturn.a
     e_saturn = new_Saturn.e + new_Saturn.e_ * d
-    M_saturn = new_Saturn.M + new_Saturn.M_ * d
+    M_saturn = rev(new_Saturn.M + new_Saturn.M_ * d)
 
     saturn_values = calculateData(N_saturn, i_saturn, w_saturn, a_saturn, e_saturn, M_saturn)
 
@@ -94,39 +95,43 @@ def calc():
     w_jupiter = new_Jupiter.w + new_Jupiter.w_ * d
     a_jupiter = new_Jupiter.a
     e_jupiter = new_Jupiter.e + new_Jupiter.e_ * d
-    M_jupiter = new_Jupiter.M + new_Jupiter.M_ * d
+    M_jupiter = rev(new_Jupiter.M + new_Jupiter.M_ * d)
 
     jupiter_values = calculateData(N_jupiter, i_jupiter, w_jupiter, a_jupiter, e_jupiter, M_jupiter)
     
     toRadians = math.pi / 180
-    j1 = -0.332 * math.sin((2*M_jupiter - 5*M_saturn - 67.6) )
-    j2 = -0.056 * math.sin((2*M_jupiter - 2*M_saturn + 21) )
-    j3 = +0.042 * math.sin((3*M_jupiter - 5*M_saturn + 21) )
-    j4 = -0.036 * math.sin((M_jupiter - 2*M_saturn) )
-    j5 = +0.022 * math.cos((M_jupiter - M_saturn) )
-    j6 = +0.023 * math.sin((2*M_jupiter - 3*M_saturn + 52) )
-    j7 = -0.016 * math.sin((M_jupiter - 5*M_saturn - 69) )
+    j1 = -0.332 * math.sin((2*M_jupiter - 5*M_saturn - 67.6) * toRadians)
+    j2 = -0.056 * math.sin((2*M_jupiter - 2*M_saturn + 21.0) * toRadians)
+    j3 = +0.042 * math.sin((3*M_jupiter - 5*M_saturn + 21.0) * toRadians)
+    j4 = -0.036 * math.sin((M_jupiter - 2*M_saturn)* toRadians )
+    j5 = +0.022 * math.cos((M_jupiter - M_saturn) * toRadians )
+    j6 = +0.023 * math.sin((2*M_jupiter - 3*M_saturn + 52.0)* toRadians )
+    j7 = -0.016 * math.sin((M_jupiter - 5*M_saturn - 69.0) * toRadians)
 
     totalCorrections = j1 + j2 + j3 + j4 + j5 + j6 + j7
     
     currentJupiterLong = jupiter_values[4]
     currentJupiterLat = jupiter_values[5]
-    r = jupiter_values[6]
+    rh = jupiter_values[6]
+
     correctedJupiterLong = currentJupiterLong + totalCorrections
 
-    xh = r * (math.cos(correctedJupiterLong) * math.cos(currentJupiterLat))
-    yh = r * (math.sin(correctedJupiterLong) * math.cos(currentJupiterLat))
-    zh = r * (math.sin(currentJupiterLat))
+    xh = rh * (math.cos(correctedJupiterLong * toRadians) * math.cos(currentJupiterLat * toRadians))
+    yh = rh * (math.sin(correctedJupiterLong * toRadians) * math.cos(currentJupiterLat * toRadians))
+    zh = rh * (math.sin(currentJupiterLat * toRadians))
 
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
-
+   
     # converting factor from 1 AU to 1 mile
     milesPerAu = 92955807.26743
 
     # get current distance in miles
     rhMi = rh * milesPerAu
+    
     "{:,}".format(round(rhMi))
     print("{:,}".format(round(rhMi)))
+
+    print(jupiter_values[2])
 
     # neptune calculations
     new_Neptune = planets.Neptune()
@@ -138,11 +143,11 @@ def calc():
     e_neptune = new_Neptune.e + new_Neptune.e_ * d
     M_neptune = new_Neptune.M + new_Neptune.M_ * d
 
-    print(N_neptune)
+    #print(N_neptune)
 
     neptune_values = calculateData(N_neptune, i_neptune, w_neptune, a_neptune, e_neptune, M_neptune)
 
-    print("{:,}".format((neptune_values[3])))
+    #print("{:,}".format((neptune_values[3])))
 
 
     #threading.Timer(1, calc).start()

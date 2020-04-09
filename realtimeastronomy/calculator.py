@@ -1,5 +1,13 @@
 import math
 
+def rev(angle):
+    while(angle <= 0 or angle >= 360):
+        if(angle < 0):
+            angle += 360
+        else:
+            angle -= 360
+    return angle
+
 def calculateData(N, i, w, a, e, M):
     # verify that w and M are between 0 and +360
 
@@ -27,12 +35,12 @@ def calculateData(N, i, w, a, e, M):
     toRadians = math.pi / 180
     
     # get initial value for E
-    E = toRadians * M + e * math.sin(toRadians * M) * (1.0 + e * math.cos(toRadians * M))
+    E = M + (e * (180/math.pi)) * math.sin(toRadians * M) * (1.0 + e * math.cos(toRadians * M))
     E_0 = E
 
     # perform iteration until accurate enough
     while(True):
-        E_1 = E_0 - (E_0 - e * math.sin(E_0 * toRadians) - M) / (1 - e * math.cos(toRadians *  E_0))
+        E_1 = E_0 - (E_0 - (e * (180/math.pi)) * math.sin(E_0 * toRadians) - M) / (1 - e * math.cos(toRadians *  E_0))
 
         error = abs(E_1 -E_0)
         E_0 = E_1
@@ -40,17 +48,15 @@ def calculateData(N, i, w, a, e, M):
         if(error < 1.0e-8):
             break
     
-    x = a * (math.cos(E) - e)
-    y = a * (math.sqrt(1.0 - e * e) * math.sin(E))
+    x = a * (math.cos(E_0 * toRadians) - e)
+    y = a * (math.sqrt(1.0 - e * e) * math.sin(E_0 * toRadians))
     v = math.degrees(math.atan2(y , x))
-
-    if(v < 0.0):
-        v += 360.0
+    v = rev(v)
 
     r = math.sqrt(x * x + y * y)
     rMi = r * 92955807.26743
 
-     # get heliocentric cartesian coordinates for planet
+    # get heliocentric cartesian coordinates for planet
     xh = r * (math.cos(toRadians * N) * math.cos(toRadians * (v+w)) - math.sin(toRadians * N) * math.sin(toRadians * (v+w)) * math.cos(toRadians * i))
     yh = r * (math.sin(toRadians * N) * math.cos(toRadians * (v+w)) + math.cos(toRadians * N) * math.sin(toRadians * (v+w)) * math.cos(toRadians * i))
     zh = r * (math.sin(toRadians * (v+w)) * math.sin(toRadians * i))
@@ -59,12 +65,9 @@ def calculateData(N, i, w, a, e, M):
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
 
     # get ecliptic longitude and latitude to correct for perturbations (Jupiter, Saturn, and Uranus only)
-    lonecl = math.degrees(math.atan2(yh, xh) * toRadians)
-
-    if(lonecl < 0.0):
-        lonecl += 360.0
+    lonecl = math.degrees(math.atan2(yh, xh))
     
-    latecl = math.degrees(math.atan2(zh, math.sqrt(xh * xh + yh * yh) * toRadians))
+    latecl = math.degrees(math.atan2(zh, math.sqrt(xh * xh + yh * yh)))
 
     if(latecl < 0):
         latecl += 360.0
@@ -78,7 +81,7 @@ def calculateData(N, i, w, a, e, M):
     # calculate geocentric distances
 
     # store returning values
-    values = [xh, yh, zh, rhMi, lonecl, latecl, r]
+    values = [xh, yh, zh, rhMi, lonecl, latecl, rh, x, y, v, E_0]
 
     return values
     
