@@ -42,17 +42,32 @@ def calculateData(N, i, w, a, e, M):
     r = math.sqrt(x * x + y * y)
     rMi = r * 92955807.26743
 
+     # get heliocentric cartesian coordinates for planet
     xh = r * (math.cos(toRadians * N) * math.cos(toRadians * (v+w)) - math.sin(toRadians * N) * math.sin(toRadians * (v+w)) * math.cos(toRadians * i))
     yh = r * (math.sin(toRadians * N) * math.cos(toRadians * (v+w)) + math.cos(toRadians * N) * math.sin(toRadians * (v+w)) * math.cos(toRadians * i))
     zh = r * (math.sin(toRadians * (v+w)) * math.sin(toRadians * i))
 
+    # get heliocentric distance
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
+
+    # get ecliptic longitude and latitude to correct for perturbations (Jupiter, Saturn, and Uranus only)
+    lonecl = math.atan2(yh, xh)
+
+    if(lonecl < 0.0):
+        lonecl += 360.0
+    
+    latecl = math.atan2(zh, math.sqrt(xh * xh + yh * yh))
+
+    if(latecl < 0):
+        latecl += 360.0
 
     # converting factor from 1 AU to 1 mile
     milesPerAu = 92955807.26743
 
     # get current distance in miles
     rhMi = rh * milesPerAu
+    
+    # calculate geocentric distances
 
     # store returning values
     values = [xh, yh, zh, rhMi]

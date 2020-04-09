@@ -1,13 +1,17 @@
 from flask import Flask, render_template, jsonify, request
 from realtimeastronomy.tester import calc
+from datetime import datetime
+from time import gmtime
+import time
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/home')
 def index():
     calculations = calc()
     distanceList = [calculations[0][0], calculations[1][0], calculations[2][0]]
-    return render_template('index.html', calculations=calculations, distanceList=distanceList)
+    currentTime = datetime.now()
+    return render_template('index.html', calculations=calculations, distanceList=distanceList, currentTime=currentTime)
 
 
 @app.route('/home', methods= ['GET','POST'])
@@ -15,9 +19,10 @@ def home():
     calculations = calc()
     distanceList = [calculations[0][0], calculations[1][0], calculations[2][0]]
     distanceListMI = ["{:,}".format(round(element)) for element in distanceList]
-    
-    # jason variables to send over
-    result = result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI:'})
+    currentTime = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.localtime())
+
+    # jasonify variables to send over
+    result = result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI:', 'currentTime' : currentTime})
 
     # check if form is POST
     if request.method == 'POST':

@@ -71,6 +71,13 @@ h1.planet{
   margin-top: 10px;
 }
 
+.jumbotron-fluid > .row-jumbo .current-time{
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
 /*  ========= CUSTOM CHECKBOX =========*/
 
 /* The container */

@@ -4,6 +4,7 @@ function executeQuery() {
         data: $('form').serialize(),
         type: "POST",
         success: function(resp){
+
             // update values for mercury
             $('#mercury-dist-text').text(resp['text'])
             $('#mercury-dist').text(resp['distance'][0]);
@@ -100,3 +101,21 @@ $(document).ready(function(){
         }
     });
 });
+
+function updateTime() {
+    $.ajax({
+        url: '/home',
+        type: "POST",
+        success: function(resp){
+            $("#current-time-text").text(resp['currentTime']);
+        },
+        complete: function(data){
+            setTimeout(updateTime, 1000);
+        }
+    });
+}
+
+$(document).ready(function(){
+    setTimeout(updateTime, 0);
+});
+
