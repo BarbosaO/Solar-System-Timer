@@ -2,6 +2,14 @@ import math
 
 def calculateData(N, i, w, a, e, M):
     # verify that w and M are between 0 and +360
+
+    if(N < 0 or N > 360):
+        n = (int)(N / 360)
+        if(w < 0):
+            N += 360 * n
+        else:
+            N -= 360 * n
+
     if(w < 0 or w > 360):
         n = (int)(w / 360)
         if(w < 0):
@@ -51,12 +59,12 @@ def calculateData(N, i, w, a, e, M):
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
 
     # get ecliptic longitude and latitude to correct for perturbations (Jupiter, Saturn, and Uranus only)
-    lonecl = math.atan2(yh, xh)
+    lonecl = math.degrees(math.atan2(yh, xh) * toRadians)
 
     if(lonecl < 0.0):
         lonecl += 360.0
     
-    latecl = math.atan2(zh, math.sqrt(xh * xh + yh * yh))
+    latecl = math.degrees(math.atan2(zh, math.sqrt(xh * xh + yh * yh) * toRadians))
 
     if(latecl < 0):
         latecl += 360.0
@@ -70,7 +78,7 @@ def calculateData(N, i, w, a, e, M):
     # calculate geocentric distances
 
     # store returning values
-    values = [xh, yh, zh, rhMi]
+    values = [xh, yh, zh, rhMi, lonecl, latecl, r]
 
     return values
     
