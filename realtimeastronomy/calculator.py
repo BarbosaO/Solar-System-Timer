@@ -1,4 +1,5 @@
 import math
+
 def calculateData(N, i, w, a, e, M):
     # verify that w and M are between 0 and +360
     if(w < 0 or w > 360):
@@ -7,7 +8,7 @@ def calculateData(N, i, w, a, e, M):
             w += 360 * n
         else:
             w -= 360 * n
-    
+
     if(M < 0 or M > 360):
         k = (int)(M / 360)
         if(M < 0):
@@ -23,15 +24,14 @@ def calculateData(N, i, w, a, e, M):
 
     # perform iteration until accurate enough
     while(True):
-        E_1 = E_0 - (E_0 - e * math.sin(E_0) - M) / (1 - e * math.cos(E_0))
+        E_1 = E_0 - (E_0 - e * math.sin(E_0 * toRadians) - M) / (1 - e * math.cos(toRadians *  E_0))
 
         error = abs(E_1 -E_0)
         E_0 = E_1
 
-        if(error < 1.745329E-5):
+        if(error < 1.0e-8):
             break
     
-    E_0 *= toRadians
     x = a * (math.cos(E) - e)
     y = a * (math.sqrt(1.0 - e * e) * math.sin(E))
     v = math.degrees(math.atan2(y , x))

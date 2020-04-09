@@ -11,12 +11,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
     
-    <title>Test</title> 
+<title>Test</title> 
   </head>
   <body>
     <main>
         <div class="row">
-        <div class="col-xs-4">
+            <div class="col-xs-4">
             <!-- START MERCURY PANEL -->
             <div class="panel panel-default mercury-panel">
                 <div class="panel-heading mercury-heading">Mercury
@@ -25,8 +25,8 @@
                 
                 <div class="panel-body mercury-body">
                     <div class="row">
-                        <div class="col-xs-6 mercury"  style="padding-left: 0px;">Distance:</div>
-                        <div class="col-xs-6 mercury-dist">{{calculations[0][0]}}</div> 
+                        <div class="col-xs-6 mercury"  style="padding-left: 0px;">Distance in Mi:</div>
+                        <div id=mercury-dist class="col-xs-6 mercury-dist">{{distanceList[0]}}</div> 
                     </div>
                     <div class="row">
                         <div class="col-xs-6 mercury-hx" style="padding-left: 0px;">x-coordinate:</div>
@@ -108,7 +108,7 @@
                 <div class="panel-body venus-body">
                     <div class="row">
                         <div class="col-xs-6 venus"  style="padding-left: 0px;">Distance:</div>
-                        <div class="col-xs-6 venus-dist">{{calculations[1][0]}}</div> 
+                        <div class="col-xs-6 venus-dist">{{distanceList[1]}}</div> 
                     </div>
                     <div class="row">
                         <div class="col-xs-6 venus-hx" style="padding-left: 0px;">x-coordinate:</div>
@@ -134,7 +134,7 @@
             
             <div class="panel-body saturn-body">
                 <div class="row">
-                    <div class="col-xs-6 saturn"  style="padding-left: 0px;">Distance:</div>
+                    <div class="col-xs-6 saturn"  style="padding-left: 0px;">Distance in MI:</div>
                     <div class="col-xs-6 saturn-dist">{{calculations[0][0]}}</div> 
                 </div>
                 <div class="row">
@@ -164,7 +164,7 @@
                 <div class="panel-body mars-body">
                     <div class="row">
                         <div class="col-xs-6 mars"  style="padding-left: 0px;">Distance:</div>
-                        <div class="col-xs-6 mars-dist">{{calculations[2][0]}}</div> 
+                        <div class="col-xs-6 mars-dist">{{distanceList[2]}}</div> 
                     </div>
                     <div class="row">
                         <div class="col-xs-6 mars-hx" style="padding-left: 0px;">x-coordinate:</div>

@@ -64,9 +64,9 @@ def calc():
 
     #threading.Timer(1, calc).start()
     result = [
-        ["{:,}".format(round(mercury_values[3])), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6)], 
-        ["{:,}".format(round(venus_values[3])), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6)],
-        ["{:,}".format(round(mars_values[3])), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)], 
+        [round(mercury_values[3]), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6)], 
+        [round(venus_values[3]), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6)],
+        [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)], 
         ] 
     return result
  
