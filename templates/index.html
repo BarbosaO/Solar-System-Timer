@@ -32,24 +32,46 @@
               <h1 class="display-4">Real Time Astronomy</h1>
               <p class="intro">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
               <hr class="my-4">
-              <h2 class= "units"> Units of Measurement</h2>
+              
+              <div class="row-jumbo">
+                <div class="col-xs-4">
 
-              <form id="my-radio-box" action="" method="post">
-                <label id=radioMI class="container">MI
-                  <input class="radioBtnClass" type="radio" name="radio" value="radioMI" checked>
-                  <span class="checkmark"></span>
-                </label>
-  
-                <label id=radioKM class="container">KM
-                  <input class="radioBtnClass" type="radio" name="radio" value="radioKM">
-                  <span class="checkmark"></span>
-                </label>
-  
-                <label id=radioAU class="container">AU
-                  <input class="radioBtnClass" type="radio" name="radio" value="radioAU">
-                  <span class="checkmark"></span>
-                </label>
-              </form>
+                  <h2 class= "units"> Units of Measurement</h2>
+                  <form id="my-radio-box-units" action="" method="post" class="radio-units">
+                    <label id=radioMI class="container">MI
+                      <input class="radioBtnClass" type="radio" name="radio" value="radioMI" checked>
+                      <span class="checkmark"></span>
+                    </label>
+      
+                    <label id=radioKM class="container">KM
+                      <input class="radioBtnClass" type="radio" name="radio" value="radioKM">
+                      <span class="checkmark"></span>
+                    </label>
+      
+                    <label id=radioAU class="container">AU
+                      <input class="radioBtnClass" type="radio" name="radio" value="radioAU">
+                      <span class="checkmark"></span>
+                    </label>
+                  </form>
+                </div>
+                <div class="col-xs-4">
+                  <h2 class= "coordinates"> Coordinates</h2>
+                  <form id="my-radio-box-coord" action="" method="post">
+                    <label id=radioH class="container">Heliocentric
+                      <input class="radioBtnClass" type="radio" name="radio" value="radioH" checked>
+                      <span class="checkmark"></span>
+                    </label>
+      
+                    <label id=radioG class="container">Geocentric
+                      <input class="radioBtnClass" type="radio" name="radio" value="radioG">
+                      <span class="checkmark"></span>
+                    </label>
+                  </form>
+                </div>
+                
+                </div>
+
+              </div>
           </div>    
         </section>
 

@@ -36,7 +36,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $('#my-radio-box').change(function(){
+    $('#my-radio-box-units').change(function(){
         selected_value = $("input[name='radio']:checked").val();
         clearTimeout(executeQuery);
         if(selected_value == 'radioKM')
