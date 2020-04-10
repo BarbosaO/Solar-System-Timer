@@ -84,4 +84,31 @@ def calculateData(N, i, w, a, e, M):
     values = [xh, yh, zh, rhMi, lonecl, latecl, rh, x, y, v, E_0]
 
     return values
-    
+
+def calculateJupiterPert(Mj, Ms, longitude, latitude, rh):
+        toRadians = math.pi / 180
+        j1 = -0.332 * math.sin((2*Mj - 5*Ms - 67.6) * toRadians)
+        j2 = -0.056 * math.sin((2*Mj - 2*Ms + 21.0) * toRadians)
+        j3 = +0.042 * math.sin((3*Mj - 5*Ms + 21.0) * toRadians)
+        j4 = -0.036 * math.sin((Mj - 2*Ms)* toRadians )
+        j5 = +0.022 * math.cos((Mj - Ms) * toRadians )
+        j6 = +0.023 * math.sin((2*Mj - 3*Ms + 52.0)* toRadians )
+        j7 = -0.016 * math.sin((Mj - 5*Ms - 69.0) * toRadians)
+
+        totalCorrections = j1 + j2 + j3 + j4 + j5 + j6 + j7
+        
+        correctedJupiterLong = longitude + totalCorrections
+
+        xh = rh * (math.cos(correctedJupiterLong * toRadians) * math.cos(latitude * toRadians))
+        yh = rh * (math.sin(correctedJupiterLong * toRadians) * math.cos(latitude * toRadians))
+        zh = rh * (math.sin(latitude * toRadians))
+
+        rh = math.sqrt(xh * xh + yh * yh + zh * zh)
+   
+        # converting factor from 1 AU to 1 mile
+        milesPerAu = 92955807.26743
+
+        # get current distance in miles
+        rhMi = rh * milesPerAu
+
+        return rhMi

@@ -9,15 +9,18 @@ app = Flask(__name__)
 @app.route('/home')
 def index():
     calculations = calc()
-    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0]]
+    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0]]
     currentTime = datetime.now()
     return render_template('index.html', calculations=calculations, distanceList=distanceList, currentTime=currentTime)
 
 
 @app.route('/home', methods= ['GET','POST'])
 def home():
+    # get initial calculations
     calculations = calc()
-    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0]]
+
+    # get list of distances only for easier manipulation
+    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0]]
     distanceListMI = ["{:,}".format(round(element)) for element in distanceList]
     currentTime = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.localtime())
 

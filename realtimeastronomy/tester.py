@@ -1,6 +1,6 @@
 import datetime, time
 import threading
-from realtimeastronomy.calculator import calculateData
+from realtimeastronomy.calculator import calculateData, calculateJupiterPert
 from realtimeastronomy import planets
 import math
 
@@ -99,39 +99,8 @@ def calc():
 
     jupiter_values = calculateData(N_jupiter, i_jupiter, w_jupiter, a_jupiter, e_jupiter, M_jupiter)
     
-    toRadians = math.pi / 180
-    j1 = -0.332 * math.sin((2*M_jupiter - 5*M_saturn - 67.6) * toRadians)
-    j2 = -0.056 * math.sin((2*M_jupiter - 2*M_saturn + 21.0) * toRadians)
-    j3 = +0.042 * math.sin((3*M_jupiter - 5*M_saturn + 21.0) * toRadians)
-    j4 = -0.036 * math.sin((M_jupiter - 2*M_saturn)* toRadians )
-    j5 = +0.022 * math.cos((M_jupiter - M_saturn) * toRadians )
-    j6 = +0.023 * math.sin((2*M_jupiter - 3*M_saturn + 52.0)* toRadians )
-    j7 = -0.016 * math.sin((M_jupiter - 5*M_saturn - 69.0) * toRadians)
-
-    totalCorrections = j1 + j2 + j3 + j4 + j5 + j6 + j7
-    
-    currentJupiterLong = jupiter_values[4]
-    currentJupiterLat = jupiter_values[5]
-    rh = jupiter_values[6]
-
-    correctedJupiterLong = currentJupiterLong + totalCorrections
-
-    xh = rh * (math.cos(correctedJupiterLong * toRadians) * math.cos(currentJupiterLat * toRadians))
-    yh = rh * (math.sin(correctedJupiterLong * toRadians) * math.cos(currentJupiterLat * toRadians))
-    zh = rh * (math.sin(currentJupiterLat * toRadians))
-
-    rh = math.sqrt(xh * xh + yh * yh + zh * zh)
-   
-    # converting factor from 1 AU to 1 mile
-    milesPerAu = 92955807.26743
-
-    # get current distance in miles
-    rhMi = rh * milesPerAu
-    
-    "{:,}".format(round(rhMi))
-    print("{:,}".format(round(rhMi)))
-
-    print(jupiter_values[2])
+    # perform perturbations calculations for jupiter
+    correctedJupiterRh = calculateJupiterPert(M_jupiter, M_saturn, jupiter_values[4], jupiter_values[5], jupiter_values[6])
 
     # neptune calculations
     new_Neptune = planets.Neptune()
@@ -154,7 +123,8 @@ def calc():
     result = [
         [round(mercury_values[3]), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6)], 
         [round(venus_values[3]), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6)],
-        [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)], 
+        [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)],
+        [round(correctedJupiterRh), round(jupiter_values[0], 6), round(jupiter_values[1],6), round(jupiter_values[2], 6)], 
         ] 
     return result
  
