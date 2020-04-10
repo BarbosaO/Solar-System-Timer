@@ -2,7 +2,7 @@
 
 ### About
 
-- An application that displays light’s distance traveled and progress to other planets in the solar system in real time.
+- An astronomy engine that calculates heliocentric and geocentric planetary distances, and additional orbital data of planets from the solar system.
 - All calculations are derived from Kepler's Equation:
 
 <p align="center"> 
