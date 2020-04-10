@@ -12,26 +12,33 @@ function executeQuery() {
             $('#mercury-hy').text(resp['calculations'][0][2]);
             $('#mercury-hz').text(resp['calculations'][0][3]);
             
-            // update value for venus
+            // update values for venus
             $('#venus-dist-text').text(resp['text'])
             $('#venus-dist').text(resp['distance'][1]);
             $('#venus-hx').text(resp['calculations'][1][1]);
             $('#venus-hy').text(resp['calculations'][1][2]);
             $('#venus-hz').text(resp['calculations'][1][3]);
 
-            // update value for mars
+            // update values for mars
             $('#mars-dist-text').text(resp['text'])
             $('#mars-dist').text(resp['distance'][2]);
             $('#mars-hx').text(resp['calculations'][2][1]);
             $('#mars-hy').text(resp['calculations'][2][2]);
             $('#mars-hz').text(resp['calculations'][2][3]);
 
-            // update value for jupiter
+            // update values for jupiter
             $('#jupiter-dist-text').text(resp['text'])
             $('#jupiter-dist').text(resp['distance'][3]);
             $('#jupiter-hx').text(resp['calculations'][3][1]);
             $('#jupiter-hy').text(resp['calculations'][3][2]);
             $('#jupiter-hz').text(resp['calculations'][3][3]);
+
+            // update values for neptune
+            $('#neptune-dist-text').text(resp['text'])
+            $('#neptune-dist').text(resp['distance'][4]);
+            $('#neptune-hx').text(resp['calculations'][4][1]);
+            $('#neptune-hy').text(resp['calculations'][4][2]);
+            $('#neptune-hz').text(resp['calculations'][4][3]);
         },
         complete: function(data){
             setTimeout(executeQuery, 1000);
@@ -70,6 +77,12 @@ $(document).ready(function(){
                         // update value for jupiter
                         $('#jupiter-dist-text').text(resp['text'])
                         $('#jupiter-dist').text(resp['distance'][3]);
+
+                        // update values for neptune
+                        $('#neptune-dist-text').text(resp['text'])
+                        $('#neptune-dist').text(resp['distance'][4]);
+
+                        
                     },
                     complete: function(data){
                         setTimeout(executeQuery, 1000);
@@ -100,10 +113,14 @@ $(document).ready(function(){
                         // update value for mars
                         $('#mars-dist-text').text(resp['text'])
                         $('#mars-dist').text(resp['distance'][2]);
-                        
+
                         // update value for jupiter
                         $('#jupiter-dist-text').text(resp['text'])
                         $('#jupiter-dist').text(resp['distance'][3]);
+
+                        // update values for neptune
+                        $('#neptune-dist-text').text(resp['text'])
+                        $('#neptune-dist').text(resp['distance'][4]);
                     },
                     complete: function(data){
                         setTimeout(executeQuery, 1000);
