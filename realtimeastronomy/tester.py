@@ -1,6 +1,6 @@
 import datetime, time
 import threading
-from realtimeastronomy.calculator import calculateData, calculateJupiterPert
+from realtimeastronomy.calculator import calculateData, calculateJupiterPert, calculateSaturnPert
 from realtimeastronomy import planets
 import math
 
@@ -87,6 +87,11 @@ def calc():
 
     saturn_values = calculateData(N_saturn, i_saturn, w_saturn, a_saturn, e_saturn, M_saturn)
 
+    # perform perturbations calculations for Saturn
+    correctedSaturnrRh = calculateSaturnPert(M_saturn, M_saturn, saturn_values[4], saturn_values[5], saturn_values[6])
+
+    print("{:,}".format(round(correctedSaturnrRh)))
+
     # jupiter calculations
     new_Jupiter = planets.Jupiter()
 
@@ -99,7 +104,7 @@ def calc():
 
     jupiter_values = calculateData(N_jupiter, i_jupiter, w_jupiter, a_jupiter, e_jupiter, M_jupiter)
     
-    # perform perturbations calculations for jupiter
+    # perform perturbations calculations for Jupiter
     correctedJupiterRh = calculateJupiterPert(M_jupiter, M_saturn, jupiter_values[4], jupiter_values[5], jupiter_values[6])
 
     # neptune calculations
