@@ -4,6 +4,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
         <title>Test</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/home.css') }}">
     </head>
@@ -106,19 +111,19 @@
                 
                 <div class="panel-body mercury-body">
                     <div class="row">
-                        <div id=mercury-dist-text class="col-xs-6 mercury"  style="padding-left: 0px;">Distance in MI:</div>
+                        <div id=mercury-dist-text class="col-xs-6 mercury"  style="padding-left: 0px;">Distance in MI :</div>
                         <div id=mercury-dist class="col-xs-6 mercury-dist">{{distanceList[0]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 mercury-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 mercury-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div id=mercury-hx class="col-xs-6 mercury-h-dist">{{calculations[0][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 mercury-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 mercury-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div id=mercury-hy class="col-xs-6 mercury-h-dist">{{calculations[0][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 mercury-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 mercury-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div id=mercury-hz class="col-xs-6 mercury-h-dist">{{calculations[0][3]}}</div> 
                 </div>
                 </div>
@@ -133,19 +138,19 @@
                 
                 <div class="panel-body jupiter-body">
                     <div class="row">
-                        <div id=jupiter-dist-text class="col-xs-6 jupiter"  style="padding-left: 0px;">Distance in Mi:</div>
+                        <div id=jupiter-dist-text class="col-xs-6 jupiter"  style="padding-left: 0px;">Distance in Mi :</div>
                         <div id=jupiter-dist class="col-xs-6 jupiter-dist">{{distanceList[3]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 jupiter-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 jupiter-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div id=jupiter-hx class="col-xs-6 jupiter-h-dist">{{calculations[3][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 jupiter-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 jupiter-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div id=jupiter-hy class="col-xs-6 jupiter-h-dist">{{calculations[3][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 jupiter-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 jupiter-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div id=jupiter-hz class="col-xs-6 jupiter-h-dist">{{calculations[3][3]}}</div> 
                 </div>
                 </div>
@@ -160,19 +165,19 @@
                 
                 <div class="panel-body neptune-body">
                     <div class="row">
-                        <div id=neptune-dist-text class="col-xs-6 neptune"  style="padding-left: 0px;">Distance:</div>
+                        <div id=neptune-dist-text class="col-xs-6 neptune"  style="padding-left: 0px;">Distance in MI :</div>
                         <div id=neptune-dist class="col-xs-6 neptune-dist">{{distanceList[4]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 neptune-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 neptune-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div id=neptune-hx class="col-xs-6 neptune-h-dist">{{calculations[4][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 neptune-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 neptune-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div id=neptune-hy class="col-xs-6 neptune-h-dist">{{calculations[4][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 neptune-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 neptune-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div id=neptune-hz class="col-xs-6 neptune-h-dist">{{calculations[4][3]}}</div> 
                 </div>
                 </div>
@@ -188,19 +193,19 @@
                 
                 <div class="panel-body venus-body">
                     <div class="row">
-                        <div id=venus-dist-text class="col-xs-6 venus"  style="padding-left: 0px;">Distance:</div>
+                        <div id=venus-dist-text class="col-xs-6 venus"  style="padding-left: 0px;">Distance in MI :</div>
                         <div id=venus-dist class="col-xs-6 venus-dist">{{calculations[1][0]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 venus-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 venus-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div id=venus-hx class="col-xs-6 venus-h-dist">{{calculations[1][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 venus-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 venus-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div id=venus-hy class="col-xs-6 venus-h-dist">{{calculations[1][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 venus-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 venus-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div id=venus-hz class="col-xs-6 venus-h-dist">{{calculations[1][3]}}</div> 
                 </div>
                 </div>
@@ -215,19 +220,19 @@
             
             <div class="panel-body saturn-body">
                 <div class="row">
-                    <div class="col-xs-6 saturn"  style="padding-left: 0px;">Distance:</div>
+                    <div class="col-xs-6 saturn"  style="padding-left: 0px;">Distance in MI:</div>
                     <div class="col-xs-6 saturn-dist">{{calculations[0][0]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 saturn-hx" style="padding-left: 0px;">x-coordinate:</div>
+                    <div class="col-xs-6 saturn-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                     <div class="col-xs-6 saturn-h-dist">{{calculations[0][1]}}</div> 
                 </div>
                 <div class="row">
-                <div class="col-xs-6 saturn-hy" style="padding-left: 0px;">y-coordinate:</div>
+                <div class="col-xs-6 saturn-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                 <div class="col-xs-6 saturn-h-dist">{{calculations[0][2]}}</div> 
             </div>
             <div class="row">
-                <div class="col-xs-6 saturn-hz" style="padding-left: 0px;">z-coordinate:</div>
+                <div class="col-xs-6 saturn-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                 <div class="col-xs-6 saturn-h-dist">{{calculations[0][3]}}</div> 
             </div>
             </div>
@@ -244,19 +249,19 @@
                 
                 <div class="panel-body mars-body">
                     <div class="row">
-                        <div id=mars-dist-text class="col-xs-6 mars"  style="padding-left: 0px;">Distance:</div>
+                        <div id=mars-dist-text class="col-xs-6 mars"  style="padding-left: 0px;">Distance in MI:</div>
                         <div id=mars-dist class="col-xs-6 mars-dist">{{calculations[2][1]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 mars-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 mars-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div id=mars-hx class="col-xs-6 mars-h-dist">{{calculations[2][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 mars-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 mars-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div id=mars-hy class="col-xs-6 mars-dist">{{calculations[2][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 mars-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 mars-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div id=mars-hz class="col-xs-6 mars-h-dist">{{calculations[2][3]}}</div> 
                 </div>
                 </div>
@@ -271,19 +276,19 @@
                 
                 <div class="panel-body uranus-body">
                     <div class="row">
-                        <div class="col-xs-6 uranus"  style="padding-left: 0px;">Distance:</div>
+                        <div class="col-xs-6 uranus"  style="padding-left: 0px;">Distance in MI:</div>
                         <div class="col-xs-6 uranus-dist">{{calculations[2][0]}}</div> 
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 uranus-hx" style="padding-left: 0px;">x-coordinate:</div>
+                        <div class="col-xs-6 uranus-hx" style="padding-left: 0px;">\(x\)-coordinate (\(H_x\)) :</div>
                         <div class="col-xs-6 uranus-h-dist">{{calculations[2][1]}}</div> 
                     </div>
                     <div class="row">
-                    <div class="col-xs-6 uranus-hy" style="padding-left: 0px;">y-coordinate:</div>
+                    <div class="col-xs-6 uranus-hy" style="padding-left: 0px;">\(y\)-coordinate (\(H_y\)) :</div>
                     <div class="col-xs-6 uranus-dist">{{calculations[2][2]}}</div> 
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 uranus-hz" style="padding-left: 0px;">z-coordinate:</div>
+                    <div class="col-xs-6 uranus-hz" style="padding-left: 0px;">\(z\)-coordinate (\(H_z\)) :</div>
                     <div class="col-xs-6 uranus-h-dist">{{calculations[2][3]}}</div> 
                 </div>
                 </div>

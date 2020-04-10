@@ -25,7 +25,7 @@ def home():
     currentTime = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.localtime())
 
     # jasonify variables to send over
-    result = result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI:', 'currentTime' : currentTime})
+    result = result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'currentTime' : currentTime})
 
     # check if form is POST
     if request.method == 'POST':
@@ -37,11 +37,11 @@ def home():
         if(option == 'radioKM'):
             distanceListKM = [element * 1.60934 for element in distanceList]
             distanceListKM = ["{:,}".format(round(element)) for element in distanceListKM]
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM:'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :'})
         elif(option == 'radioAU'):
             distanceListAU = [element * 1.07578e-8 for element in distanceList]
             distanceListAU = ["{:,}".format(round(element, 6)) for element in distanceListAU]
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU:'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :'})
 
     return result
    
