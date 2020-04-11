@@ -35,7 +35,7 @@ def calc():
     millsSince2000 =  946684800000
 
     d = round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
-    
+    #d = 7304.50082808
     # mercury calculations
     new_mercury = planets.Mercury()
 
@@ -108,7 +108,7 @@ def calc():
     N_uranus = rev(new_Uranus.N + new_Uranus.N_ * d)
     i_uranus = new_Uranus.i + new_Uranus.i_ * d
     w_uranus = rev(new_Uranus.w + new_Uranus.w_ * d)
-    a_uranus = new_Uranus.a - new_Uranus.a_
+    a_uranus = new_Uranus.a - new_Uranus.a_ * d
     e_uranus = new_Uranus.e + new_Uranus.e_ * d
     M_uranus = rev(new_Uranus.M + new_Uranus.M_ * d)
 
@@ -119,14 +119,13 @@ def calc():
 
     print("{:,}".format(round(correctedUranusRh)))
 
-
     # neptune calculations
     new_Neptune = planets.Neptune()
 
     N_neptune = rev(new_Neptune.N + new_Neptune.N_ * d)
     i_neptune = new_Neptune.i - new_Neptune.i_ * d
     w_neptune = rev(new_Neptune.w - new_Neptune.w_ * d)
-    a_neptune = new_Neptune.a + new_Neptune.a_
+    a_neptune = new_Neptune.a + new_Neptune.a_ * d
     e_neptune = new_Neptune.e + new_Neptune.e_ * d
     M_neptune = rev(new_Neptune.M + new_Neptune.M_ * d)
 

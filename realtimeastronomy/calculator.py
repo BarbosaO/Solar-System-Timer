@@ -71,12 +71,9 @@ def calculateData(N, i, w, a, e, M):
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
 
     # get ecliptic longitude and latitude to correct for perturbations (Jupiter, Saturn, and Uranus only)
-    lonecl = math.degrees(math.atan2(yh, xh))
+    lonecl = rev(math.degrees(math.atan2(yh, xh)))
     
     latecl = math.degrees(math.atan2(zh, math.sqrt(xh * xh + yh * yh)))
-
-    if(latecl < 0):
-        latecl += 360.0
 
     # converting factor from 1 AU to 1 mile
     milesPerAu = 92955807.26743
@@ -87,7 +84,7 @@ def calculateData(N, i, w, a, e, M):
     # calculate geocentric distances
 
     # store returning values
-    values = [xh, yh, zh, rhMi, lonecl, latecl, rh, x, y, v, E_0]
+    values = [xh, yh, zh, rhMi, lonecl, latecl, rh, x, y, v, E_0, r]
 
     return values
 
@@ -169,8 +166,8 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
     # perturbation correction for Uranus Heliocentric Logitude
     u1 = 0.040 * (math.sin((Ms - 2*Mu + 6.0) * toRadians()))
-    u2 = 0.035 * (math.cos((Ms - 4*Mu + 33.0) * toRadians())) 
-    u3 = -0.015 * (math.sin((Mj - 2*Mu + 20.0) * toRadians()))
+    u2 = 0.035 * (math.sin((Ms - 3*Mu + 33.0) * toRadians())) 
+    u3 = -0.015 * (math.sin((Mj - Mu + 20.0) * toRadians()))
 
     # total corrections for Uranus Heliocentric Longitude
     totalLongCorrections = u1 + u2 + u3
@@ -185,7 +182,9 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
     # new rh value
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
-   
+
+    print(rh)
+
     # converting factor from 1 AU to 1 mile
     milesPerAu = 92955807.26743
 
