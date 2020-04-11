@@ -34,7 +34,7 @@ def calc():
     millsSince2000 = datetime.datetime(2000, 1, 1).timestamp() * 1000
     millsSince2000 =  946684800000
 
-    d = round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
+    d= round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
     #d = 7304.50082808
     # mercury calculations
     new_mercury = planets.Mercury()

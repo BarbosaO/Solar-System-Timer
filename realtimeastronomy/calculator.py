@@ -183,8 +183,6 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
     # new rh value
     rh = math.sqrt(xh * xh + yh * yh + zh * zh)
 
-    print(rh)
-
     # converting factor from 1 AU to 1 mile
     milesPerAu = 92955807.26743
 

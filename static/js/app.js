@@ -202,7 +202,7 @@ $(document).ready(function(){
                         console.log(tex);
                         this.formula.innerHTML = "\\["+tex+"\\]";
                         MathJax.Hub.Queue(["Typeset",MathJax]);
-                        $('#mercury-coor-text').text('\(ax^3 + bx + c = 0\)');
+                        //$('#mercury-coor-text').text('\(ax^3 + bx + c = 0\)');
                     },
                     complete: function(data){
                         setTimeout(executeQuery, 1000);
@@ -222,7 +222,7 @@ $(document).ready(function(){
                     type: "POST",
                     success: function(resp){
                         // update values for mercury
-                        $('#mercury-coor-text').text('\\(ax^3 + bx + c = 0\\)');
+                        //$('#mercury-coor-text').text('\\(ax^3 + bx + c = 0\\)');
                     },
                     complete: function(data){
                         setTimeout(executeQuery, 1000);
