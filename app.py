@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/home')
 def index():
     calculations = calc()
-    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0]]
+    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0], calculations[6][0]]
     currentTime = datetime.now()
     return render_template('index.html', calculations=calculations, distanceList=distanceList, currentTime=currentTime)
 
@@ -20,7 +20,7 @@ def home():
     calculations = calc()
 
     # get list of distances only for easier manipulation
-    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0]]
+    distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0], calculations[6][0]]
     distanceListMI = ["{:,}".format(round(element)) for element in distanceList]
     currentTime = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.localtime())
 
