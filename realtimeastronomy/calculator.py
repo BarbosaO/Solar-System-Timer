@@ -1,5 +1,6 @@
 import math
 
+# function to minimize an angle to [0, 360] degrees
 def rev(angle):
     while(angle <= 0 or angle >= 360):
         if(angle < 0):
@@ -8,12 +9,14 @@ def rev(angle):
             angle -= 360
     return angle
 
+# function to convert degrees to radians for trigonometric functions
 def toRadians():
     return math.pi / 180
 
+# function to calculate inital orbital data
 def calculateData(N, i, w, a, e, M):
-    # verify that w and M are between 0 and +360
 
+    # verify that w and M are between 0 and +360
     if(N < 0 or N > 360):
         n = (int)(N / 360)
         if(w < 0):

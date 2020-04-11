@@ -36,7 +36,6 @@ def calc():
 
     d = round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
     
-
     # mercury calculations
     new_mercury = planets.Mercury()
 
@@ -46,7 +45,6 @@ def calc():
     a_mercury = new_mercury.a
     e_mercury = new_mercury.e + new_mercury.e_ * d
     M_mercury = rev(new_mercury.M + new_mercury.M_ * d)
-
 
     mercury_values = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
 
@@ -61,7 +59,6 @@ def calc():
     M_venus = rev(new_venus.M + new_venus.M_ * d)
 
     venus_values = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
-
 
     # mars calculations
     new_Mars = planets.Mars()
@@ -88,9 +85,9 @@ def calc():
     saturn_values = calculateData(N_saturn, i_saturn, w_saturn, a_saturn, e_saturn, M_saturn)
 
     # perform perturbations calculations for Saturn
-    correctedSaturnrRh = calculateSaturnPert(M_saturn, M_saturn, saturn_values[4], saturn_values[5], saturn_values[6])
+    correctedSaturnRh = calculateSaturnPert(M_saturn, M_saturn, saturn_values[4], saturn_values[5], saturn_values[6])
 
-    print("{:,}".format(round(correctedSaturnrRh)))
+    print("{:,}".format(round(correctedSaturnRh)))
 
     # jupiter calculations
     new_Jupiter = planets.Jupiter()
@@ -117,19 +114,14 @@ def calc():
     e_neptune = new_Neptune.e + new_Neptune.e_ * d
     M_neptune = new_Neptune.M + new_Neptune.M_ * d
 
-    #print(N_neptune)
-
     neptune_values = calculateData(N_neptune, i_neptune, w_neptune, a_neptune, e_neptune, M_neptune)
 
-    #print("{:,}".format((neptune_values[3])))
-
-
-    #threading.Timer(1, calc).start()
     result = [
         [round(mercury_values[3]), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6)], 
         [round(venus_values[3]), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6)],
         [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6)],
-        [round(correctedJupiterRh), round(jupiter_values[0], 6), round(jupiter_values[1],6), round(jupiter_values[2], 6)],
+        [round(correctedJupiterRh), round(jupiter_values[0], 6), round(jupiter_values[1], 6), round(jupiter_values[2], 6)],
+        [round(correctedSaturnRh), round(saturn_values[0], 6), round(saturn_values[1], 6), round(saturn_values[2], 6)],
         [round(neptune_values[3]), round(neptune_values[0], 6), round(neptune_values[1], 6), round(neptune_values[2], 6)] 
         ] 
     return result
