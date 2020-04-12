@@ -41,7 +41,7 @@ h1.planet{
   margin-right: 30px;
   border-width: 3px;
   border-color: #010b19;
-  height: 380px;
+  min-height: 380px;
 }
 
 .jumbotron-fluid > .display-4{

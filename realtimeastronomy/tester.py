@@ -47,6 +47,8 @@ def calc():
     M_mercury = rev(new_mercury.M + new_mercury.M_ * d)
 
     mercury_values = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
+    
+    print(mercury_values[4])
 
     # venus calculations
     new_venus = planets.Venus()

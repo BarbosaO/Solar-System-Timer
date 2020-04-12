@@ -38,11 +38,11 @@ def home():
 
         if(coor_option == 'radioH'):
             # do for heliocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : 'x-coordinate (Hx) :'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : '\\(x\\)-coordinate (\\(H_x)\\)'})
 
         elif(coor_option == 'radioG'):
             # do for geocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : 'x-coordinate (Gx) :'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : '\\(x\\)-coordinate (\\(G_x)\\)'})
 
         # start checking for conversions
         if(units_option == 'radioKM'):
