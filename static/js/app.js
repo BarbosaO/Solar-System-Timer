@@ -193,9 +193,15 @@ $(document).ready(function(){
                     data: $('form').serialize(),
                     type: "POST",
                     success: function(resp){
-                        
-                        // update values for all coordinate text divs
-                        $("div[id$='coor-text']").text(resp['coorText']);
+
+                        // update values for all coordinate text divs for hx
+                        $("div[id$='x-coor-text']").text(resp['coorText'][0]);
+
+                        // update values for all coordinate text divs for hy
+                        $("div[id$='y-coor-text']").text(resp['coorText'][1]);
+
+                        // update values for all coordinate text divs for hz
+                        $("div[id$='z-coor-text']").text(resp['coorText'][2]);
                         MathJax.typeset(["div[id$='coor-text']"]);
                     },
                     complete: function(data){
@@ -216,8 +222,15 @@ $(document).ready(function(){
                     type: "POST",
                     success: function(resp){
                    
-                        // update values for all coordinate text divs
-                        $("div[id$='coor-text']").text(resp['coorText']);
+                        // update values for all coordinate text divs for gx
+                        $("div[id$='x-coor-text']").text(resp['coorText'][0]);
+
+                        // update values for all coordinate text divs for gy
+                        $("div[id$='y-coor-text']").text(resp['coorText'][1]);
+
+                        // update values for all coordinate text divs for gz
+                        $("div[id$='z-coor-text']").text(resp['coorText'][2]);
+
                         MathJax.typeset(["div[id$='coor-text']"]);
                     },
                     complete: function(data){

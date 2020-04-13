@@ -36,13 +36,16 @@ def home():
         # get coordinates radio button value
         coor_option = (request.form.get("radio-coor"))
 
+        hxCoordinateText = ['Heliocentric (\\(H_x)\\) :', 'Heliocentric (\\(H_y)\\) :', 'Heliocentric (\\(H_z)\\) :']
+        gxCoordinateText= ['Geocentric (\\(G_x)\\) :', 'Geocentric (\\(G_y)\\) :', 'Geocentric (\\(G_z)\\) :']
+
         if(coor_option == 'radioH'):
             # do for heliocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : '\\(x\\)-coordinate (\\(H_x)\\)'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : hxCoordinateText})
 
         elif(coor_option == 'radioG'):
             # do for geocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : '\\(x\\)-coordinate (\\(G_x)\\)'})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : gxCoordinateText})
 
         # start checking for conversions
         if(units_option == 'radioKM'):
@@ -51,11 +54,11 @@ def home():
 
             if(coor_option == 'radioH'):
                 # do for heliocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :', 'coorText' : 'x-coordinate (Hx) :'})
+                result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :', 'coorText' : hxCoordinateText})
 
             elif(coor_option == 'radioG'):
                 # do for geocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :', 'coorText' : 'x-coordinate (Gx) :'})
+                result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :', 'coorText' : gxCoordinateText})
 
         elif(units_option == 'radioAU'):
             distanceListAU = [element * 1.07578e-8 for element in distanceList]
@@ -63,11 +66,11 @@ def home():
 
             if(coor_option == 'radioH'):
                 # do for heliocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : 'x-coordinate (Hx) :'})
+                result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : hxCoordinateText})
 
             elif(coor_option == 'radioG'):
                 # do for geocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : 'x-coordinate (Gx) :'})
+                result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : gxCoordinateText})
 
     return result
 
