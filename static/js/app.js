@@ -193,17 +193,10 @@ $(document).ready(function(){
                     data: $('form').serialize(),
                     type: "POST",
                     success: function(resp){
-
-                        //var formula = document.getElementById('mercury-coor-text');
-                        // update values for mercury
-                        //alert($('#mercury-coor-text').text())
-                        // \(x\)-coordinate (\(H_x\)) :
-                        //var tex = '\\frac{1}{\\sqrt{x^2 + 1}}';
-                        //console.log(tex);
-                        //this.formula.innerHTML = "\\["+tex+"\\]";
-                        //MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-                        $('#mercury-coor-text').text(resp['coorText']);
-                        MathJax.typeset(["#mercury-coor-text"]);
+                        
+                        // update values for all coordinate text divs
+                        $("div[id$='coor-text']").text(resp['coorText']);
+                        MathJax.typeset(["div[id$='coor-text']"]);
                     },
                     complete: function(data){
                         setTimeout(executeQuery, 1000);
@@ -222,16 +215,10 @@ $(document).ready(function(){
                     data: $('form').serialize(),
                     type: "POST",
                     success: function(resp){
-                        // update values for mercury
-                        $('#mercury-x-coor-text').text(resp['coorText']);
-                        
-
-                        // update values for venus
-                        $('#venus-x-coor-text').text(resp['coorText']);
-
-                        MathJax.typeset(["#mercury-x-coor-text", '#venus-x-coor-text']);
-                       // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
                    
+                        // update values for all coordinate text divs
+                        $("div[id$='coor-text']").text(resp['coorText']);
+                        MathJax.typeset(["div[id$='coor-text']"]);
                     },
                     complete: function(data){
                     }
