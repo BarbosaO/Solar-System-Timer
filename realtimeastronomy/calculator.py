@@ -191,3 +191,43 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
     return rhMi
 
+# calculate sun data for geocentric coordinates of planets
+def calculateSunData(N, i, w, a, e, M):
+
+    E = M + e*(180/math.pi) * math.sin(M * toRadians()) * (1.0 + e * math.cos(M * toRadians()))
+
+    xv = math.cos(E * toRadians()) - e
+    yv = math.sqrt(1.0 - e*e) * math.sin(E * toRadians())
+
+    v = math.degrees(math.atan2(yv, xv))
+    v = rev(v)
+
+    r = math.sqrt(xv*xv + yv*yv)
+
+    lonsun = v + w
+    lonsun = rev(lonsun)
+
+    xs = r * math.cos(lonsun * toRadians())
+    ys = r * math.sin(lonsun * toRadians())
+
+    return [xs, ys, xv, yv, E, v, lonsun, r] 
+
+# calculate geocentric coordinates of planets
+def calculateGeocentric(xs, ys, xh, yh, zh):
+    
+    xg = xh + xs
+    yg = yh + ys
+    zg = zh
+
+      # new rh value
+    rg = math.sqrt(xg * xg + yg * yg + zg * zg)
+
+    # converting factor from 1 AU to 1 mile
+    milesPerAu = 92955807.26743
+
+    # get current distance in miles
+    rgMi = rg * milesPerAu
+
+    return [rgMi, xg, yg, zg]
+
+    

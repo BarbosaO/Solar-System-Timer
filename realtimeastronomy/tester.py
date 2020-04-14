@@ -1,6 +1,6 @@
 import datetime, time
 import threading
-from realtimeastronomy.calculator import calculateData, calculateJupiterPert, calculateSaturnPert, calculateUranusPert
+from realtimeastronomy.calculator import calculateData, calculateJupiterPert, calculateSaturnPert, calculateUranusPert, calculateSunData, calculateGeocentric
 from realtimeastronomy import planets
 import math
 
@@ -35,7 +35,24 @@ def calc():
     millsSince2000 =  946684800000
 
     d= round((1.0 + (currentTimeMills - millsSince2000) / (3600 * 24.0 * 1000)), 5)
-    #d = 7304.50082808
+    #d = -3543.0
+    #d = 7306.20833
+
+    # sun calculations
+    new_sun = planets.Sun()
+
+    N_sun = new_sun.N
+    i_sun = new_sun.i
+    w_sun = rev(new_sun.w + new_sun.w_ * d)
+    a_sun = new_sun.a
+    e_sun = new_sun.e - new_sun.e_ * d
+    M_sun = rev(new_sun.M + new_sun.M_ * d)
+
+    sun_values = calculateSunData(N_sun, i_sun, w_sun, a_sun, e_sun, M_sun)
+
+    #print(M_sun)
+
+
     # mercury calculations
     new_mercury = planets.Mercury()
 
@@ -47,9 +64,12 @@ def calc():
     M_mercury = rev(new_mercury.M + new_mercury.M_ * d)
 
     mercury_values = calculateData(N_mercury, i_mercury, w_mercury, a_mercury, e_mercury, M_mercury)
-    
-    print(mercury_values[4])
 
+    # calculate geocentric coordinates
+    mercury_geocentric = calculateGeocentric(sun_values[0], sun_values[1], mercury_values[0], mercury_values[1], mercury_values[2])
+
+    #print("{:,}".format(round(mercury_geocentric[0], 6)))
+    
     # venus calculations
     new_venus = planets.Venus()
 
@@ -62,6 +82,11 @@ def calc():
 
     venus_values = calculateData(N_venus, i_venus, w_venus, a_venus, e_venus, M_venus)
 
+    # calculate geocentric coordinates
+    venus_geocentric = calculateGeocentric(sun_values[0], sun_values[1], venus_values[0], venus_values[1], venus_values[2])
+
+    #print("{:,}".format((round(venus_geocentric[0], 6))))
+
     # mars calculations
     new_Mars = planets.Mars()
 
@@ -73,6 +98,11 @@ def calc():
     M_mars = new_Mars.M + new_Mars.M_ * d
 
     mars_values = calculateData(N_mars, i_mars, w_mars, a_mars, e_mars, M_mars)
+
+     # calculate geocentric coordinates
+    mars_geocentric = calculateGeocentric(sun_values[0], sun_values[1], mars_values[0], mars_values[1], mars_values[2])
+
+    print("{:,}".format((round(mars_geocentric[0], 6))))
 
     # saturn calculations
     new_Saturn = planets.Saturn()
@@ -119,7 +149,7 @@ def calc():
     # perform perturbations calculations for Uranus
     correctedUranusRh = calculateUranusPert(M_jupiter, M_saturn, M_uranus, uranus_values[4], uranus_values[5], uranus_values[6])
 
-    print("{:,}".format(round(correctedUranusRh)))
+    #print("{:,}".format(round(correctedUranusRh)))
 
     # neptune calculations
     new_Neptune = planets.Neptune()
