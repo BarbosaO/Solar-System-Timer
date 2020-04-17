@@ -119,7 +119,7 @@ def calculateJupiterPert(Mj, Ms, longitude, latitude, rh):
         # get current distance in miles
         rhMi = rh * milesPerAu
 
-        return rhMi
+        return [rhMi, xh, yh, zh]
 
 def calculateSaturnPert(Mj, Ms, longitude, latitude, rh):
 
@@ -160,7 +160,7 @@ def calculateSaturnPert(Mj, Ms, longitude, latitude, rh):
     # get current distance in miles
     rhMi = rh * milesPerAu
 
-    return rhMi
+    return [rhMi, xh, yh, zh]
  
 def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
@@ -189,7 +189,7 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
     # get current distance in miles
     rhMi = rh * milesPerAu
 
-    return rhMi
+    return [rhMi, xh, yh, zh]
 
 # calculate sun data for geocentric coordinates of planets
 def calculateSunData(N, i, w, a, e, M):
@@ -228,6 +228,6 @@ def calculateGeocentric(xs, ys, xh, yh, zh):
     # get current distance in miles
     rgMi = rg * milesPerAu
 
-    return [rgMi, xg, yg, zg]
+    return [rg, xg, yg, zg]
 
     
