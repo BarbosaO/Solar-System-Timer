@@ -19,9 +19,21 @@ def home():
     # get initial calculations
     calculations = calc()
 
-    # get list of distances only for easier manipulation
+    # get only heliocentric distances for easier manipulation
     distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0], calculations[6][0]]
+
+    # get geocentric data from calculations
+    geocentricData = [calculations[0][4], calculations[1][4], calculations[2][4], calculations[3][4], calculations[4][4], calculations[5][4], calculations[6][4]]
+
+    # get only geocentric distances for easier manipulations
+    geoDistances = [geocentricData[0][0], geocentricData[1][0], geocentricData[2][0], geocentricData[3][0], geocentricData[4][0], geocentricData[5][0], geocentricData[6][0]]
+
+    # format helocentric distances
     distanceListMI = ["{:,}".format(round(element)) for element in distanceList]
+
+    # format geocentric distances
+    geoDistancesMI = ["{:,}".format(round(element)) for element in geoDistances]
+
     currentTime = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.localtime())
 
     # jasonify variables to send over
@@ -41,12 +53,13 @@ def home():
 
         if(coor_option == 'radioH'):
             # do for heliocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : hxCoordinateText})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'geoDistance' : geoDistancesMI, 'text' : 'Distance in MI :', 'coorText' : hxCoordinateText})
 
         elif(coor_option == 'radioG'):
             # do for geocentric
-            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'text' : 'Distance in MI :', 'coorText' : gxCoordinateText})
+            result = jsonify({'calculations' : calculations, 'distance' : distanceListMI, 'geoDistance' : geoDistancesMI, 'text' : 'Distance in MI :', 'coorText' : gxCoordinateText})
 
+    
         # start checking for conversions
         if(units_option == 'radioKM'):
             distanceListKM = [element * 1.60934 for element in distanceList]

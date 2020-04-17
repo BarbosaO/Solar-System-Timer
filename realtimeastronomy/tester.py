@@ -170,12 +170,12 @@ def calc():
 
     result = [
         [round(mercury_values[3]), round(mercury_values[0], 6), round(mercury_values[1], 6), round(mercury_values[2], 6), mercury_geocentric], 
-        [round(venus_values[3]), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6), mercury_geocentric],
-        [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6), mercury_geocentric],
-        [round(correctedJupiter[0]), round(jupiter_values[0], 6), round(jupiter_values[1], 6), round(jupiter_values[2], 6), mercury_geocentric],
-        [round(correctedSaturn[0]), round(saturn_values[0], 6), round(saturn_values[1], 6), round(saturn_values[2], 6), mercury_geocentric],
-        [round(correctedUranus[0]), round(uranus_values[0], 6), round(uranus_values[1], 6), round(uranus_values[2], 6), mercury_geocentric],
-        [round(neptune_values[3]), round(neptune_values[0], 6), round(neptune_values[1], 6), round(neptune_values[2], 6), mercury_geocentric],
+        [round(venus_values[3]), round(venus_values[0], 6), round(venus_values[1], 6), round(venus_values[2], 6), venus_geocentric],
+        [round(mars_values[3]), round(mars_values[0], 6), round(mars_values[1], 6), round(mars_values[2], 6), mars_geocentric],
+        [round(correctedJupiter[0]), round(jupiter_values[0], 6), round(jupiter_values[1], 6), round(jupiter_values[2], 6), jupiter_geocentric],
+        [round(correctedSaturn[0]), round(saturn_values[0], 6), round(saturn_values[1], 6), round(saturn_values[2], 6), saturn_geocentric],
+        [round(correctedUranus[0]), round(uranus_values[0], 6), round(uranus_values[1], 6), round(uranus_values[2], 6), uranus_geocentric],
+        [round(neptune_values[3]), round(neptune_values[0], 6), round(neptune_values[1], 6), round(neptune_values[2], 6), neptune_geocentric],
         ] 
     return result
  
