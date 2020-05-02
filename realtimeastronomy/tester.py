@@ -4,6 +4,7 @@ from realtimeastronomy.calculator import calculateData, calculateJupiterPert, ca
 from realtimeastronomy import planets
 import math
 
+# function to reduce an angle to within 0 to +360 degrees
 def rev(angle):
     while(angle <= 0 or angle >= 360):
         if(angle < 0):
