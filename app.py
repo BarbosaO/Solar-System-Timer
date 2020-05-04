@@ -64,6 +64,10 @@ def home():
         if(units_option == 'radioKM'):
             distanceListKM = [element * 1.60934 for element in distanceList]
             distanceListKM = ["{:,}".format(round(element)) for element in distanceListKM]
+            
+            # KM conversion for geoncentric distances
+            geoDistanceListKM = [element * 1.60934 for element in geoDistances]
+            geoDistanceListKM = ["{:,}".format(round(element)) for element in geoDistanceListKM]
 
             if(coor_option == 'radioH'):
                 # do for heliocentric
@@ -71,19 +75,25 @@ def home():
 
             elif(coor_option == 'radioG'):
                 # do for geocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListKM, 'text' : 'Distance in KM :', 'coorText' : gxCoordinateText})
+                result = jsonify({'calculations' : geocentricData, 'distance' : geoDistanceListKM, 'text' : 'Distance in KM :', 'coorText' : gxCoordinateText})
 
         elif(units_option == 'radioAU'):
+
+            # AU conversion for heliocentric distances
             distanceListAU = [element * 1.07578e-8 for element in distanceList]
             distanceListAU = ["{:,}".format(round(element, 6)) for element in distanceListAU]
 
+            # AU conversion for geocentric distances
+            geoDistanceListAU = [element * 1.07578e-8 for element in geoDistances]
+            geoDistanceListAU = ["{:,}".format(round(element, 6)) for element in geoDistanceListAU]
+            
             if(coor_option == 'radioH'):
                 # do for heliocentric
                 result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : hxCoordinateText})
 
             elif(coor_option == 'radioG'):
                 # do for geocentric
-                result = jsonify({'calculations' : calculations, 'distance' : distanceListAU, 'text' : 'Distance in AU :', 'coorText' : gxCoordinateText})
+                result = jsonify({'calculations' : geocentricData, 'distance' : geoDistanceListAU, 'text' : 'Distance in AU :', 'coorText' : gxCoordinateText})
 
     return result
 
