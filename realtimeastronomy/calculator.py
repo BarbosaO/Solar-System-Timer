@@ -228,6 +228,6 @@ def calculateGeocentric(xs, ys, xh, yh, zh):
     # get current distance in miles
     rgMi = rg * milesPerAu
 
-    return [rgMi, xg, yg, zg]
+    return [rgMi, round(xg, 6), round(yg, 6), round(zg, 6)]
 
     

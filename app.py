@@ -57,7 +57,7 @@ def home():
 
         elif(coor_option == 'radioG'):
             # do for geocentric
-            result = jsonify({'calculations' : calculations, 'distance' : geoDistancesMI, 'geoDistance' : geoDistancesMI, 'text' : 'Distance in MI :', 'coorText' : gxCoordinateText})
+            result = jsonify({'calculations' : geocentricData, 'distance' : geoDistancesMI, 'geoDistance' : geoDistancesMI, 'text' : 'Distance in MI :', 'coorText' : gxCoordinateText})
 
     
         # start checking for conversions

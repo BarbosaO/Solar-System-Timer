@@ -133,7 +133,6 @@ def calc():
     # calculate geocentric coordinates for Saturn
     saturn_geocentric = calculateGeocentric(sun_values[0], sun_values[1], correctedSaturn[1], correctedSaturn[2], correctedSaturn[3])
 
-
     # uranus calculations
     new_Uranus = planets.Uranus()
 
@@ -152,7 +151,6 @@ def calc():
     # calculate geocentric coordinates for Uranus
 
     uranus_geocentric = calculateGeocentric(sun_values[0], sun_values[1], correctedUranus[1], correctedUranus[2], correctedUranus[3])
-
 
     # neptune calculations
     new_Neptune = planets.Neptune()
@@ -179,5 +177,3 @@ def calc():
         [round(neptune_values[3]), round(neptune_values[0], 6), round(neptune_values[1], 6), round(neptune_values[2], 6), neptune_geocentric],
         ] 
     return result
- 
-
