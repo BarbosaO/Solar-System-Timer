@@ -1,3 +1,4 @@
+# class for all the planets
 class Mercury:
     N = 48.33134869
     i = 7.00470007
