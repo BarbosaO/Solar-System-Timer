@@ -6,6 +6,7 @@ import time
 
 app = Flask(__name__)
 
+# initial routing to home page
 @app.route('/home')
 def index():
     calculations = calc()
