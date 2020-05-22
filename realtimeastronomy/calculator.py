@@ -1,7 +1,7 @@
 import math
 
-# function to minimize an angle to [0, 360] degrees
 def rev(angle):
+    """ Minimize an angle to [0, 360] degrees """
     while(angle <= 0 or angle >= 360):
         if(angle < 0):
             angle += 360
@@ -9,13 +9,12 @@ def rev(angle):
             angle -= 360
     return angle
 
-# function to convert degrees to radians for trigonometric functions
 def toRadians():
+    """ Converts degrees to radians for trigonometric functions"""
     return math.pi / 180
 
-# function to calculate inital orbital data
 def calculateData(N, i, w, a, e, M):
-
+    """ Calculates inital orbital data """
     # verify that w and M are between 0 and +360
     if(N < 0 or N > 360):
         n = (int)(N / 360)
@@ -89,39 +88,40 @@ def calculateData(N, i, w, a, e, M):
     return values
 
 def calculateJupiterPert(Mj, Ms, longitude, latitude, rh):
+    """ Calculates Jupiter perturbations """
+    # perturbation correction for Jupiter Heliocentric Longitude
+    j1 = -0.332 * math.sin((2*Mj - 5*Ms - 67.6) * toRadians())
+    j2 = -0.056 * math.sin((2*Mj - 2*Ms + 21.0) * toRadians())
+    j3 = +0.042 * math.sin((3*Mj - 5*Ms + 21.0) * toRadians())
+    j4 = -0.036 * math.sin((Mj - 2*Ms)* toRadians ())
+    j5 = +0.022 * math.cos((Mj - Ms) * toRadians ())
+    j6 = +0.023 * math.sin((2*Mj - 3*Ms + 52.0)* toRadians())
+    j7 = -0.016 * math.sin((Mj - 5*Ms - 69.0) * toRadians())
 
-        # perturbation correction for Jupiter Heliocentric Longitude
-        j1 = -0.332 * math.sin((2*Mj - 5*Ms - 67.6) * toRadians())
-        j2 = -0.056 * math.sin((2*Mj - 2*Ms + 21.0) * toRadians())
-        j3 = +0.042 * math.sin((3*Mj - 5*Ms + 21.0) * toRadians())
-        j4 = -0.036 * math.sin((Mj - 2*Ms)* toRadians ())
-        j5 = +0.022 * math.cos((Mj - Ms) * toRadians ())
-        j6 = +0.023 * math.sin((2*Mj - 3*Ms + 52.0)* toRadians())
-        j7 = -0.016 * math.sin((Mj - 5*Ms - 69.0) * toRadians())
+    # total corrections for Jupiter Heliocentric Longitude
+    totalCorrections = j1 + j2 + j3 + j4 + j5 + j6 + j7
+    
+    # new corrected Jupiter Heliocentric Logitude
+    correctedJupiterLong = longitude + totalCorrections
 
-        # total corrections for Jupiter Heliocentric Longitude
-        totalCorrections = j1 + j2 + j3 + j4 + j5 + j6 + j7
-        
-        # new corrected Jupiter Heliocentric Logitude
-        correctedJupiterLong = longitude + totalCorrections
+    # new hx, hy, and hy values 
+    xh = rh * (math.cos(correctedJupiterLong * toRadians()) * math.cos(latitude * toRadians()))
+    yh = rh * (math.sin(correctedJupiterLong * toRadians()) * math.cos(latitude * toRadians()))
+    zh = rh * (math.sin(latitude * toRadians()))
 
-        # new hx, hy, and hy values 
-        xh = rh * (math.cos(correctedJupiterLong * toRadians()) * math.cos(latitude * toRadians()))
-        yh = rh * (math.sin(correctedJupiterLong * toRadians()) * math.cos(latitude * toRadians()))
-        zh = rh * (math.sin(latitude * toRadians()))
+    # new rh value
+    rh = math.sqrt(xh * xh + yh * yh + zh * zh)
 
-        # new rh value
-        rh = math.sqrt(xh * xh + yh * yh + zh * zh)
-   
-        # converting factor from 1 AU to 1 mile
-        milesPerAu = 92955807.26743
+    # converting factor from 1 AU to 1 mile
+    milesPerAu = 92955807.26743
 
-        # get current distance in miles
-        rhMi = rh * milesPerAu
+    # get current distance in miles
+    rhMi = rh * milesPerAu
 
-        return [rhMi, xh, yh, zh]
+    return [rhMi, xh, yh, zh]
 
 def calculateSaturnPert(Mj, Ms, longitude, latitude, rh):
+    """ Calculates Saturn perturbations """
 
     # perturbation correction for Saturn Heliocentric Logitude
     s1 = 0.812 * (math.sin((2*Mj - 5*Ms - 67.6) * toRadians()))
@@ -163,7 +163,8 @@ def calculateSaturnPert(Mj, Ms, longitude, latitude, rh):
     return [rhMi, xh, yh, zh]
  
 def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
-
+    """ Calculates Uranus perturbations """
+    
     # perturbation correction for Uranus Heliocentric Logitude
     u1 = 0.040 * (math.sin((Ms - 2*Mu + 6.0) * toRadians()))
     u2 = 0.035 * (math.sin((Ms - 3*Mu + 33.0) * toRadians())) 
@@ -191,8 +192,8 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
     return [rhMi, xh, yh, zh]
 
-# calculate sun data for geocentric coordinates of planets
 def calculateSunData(N, i, w, a, e, M):
+    """ Calculates sun data for geocentric coordinates of planets """
 
     E = M + e*(180/math.pi) * math.sin(M * toRadians()) * (1.0 + e * math.cos(M * toRadians()))
 
@@ -212,8 +213,8 @@ def calculateSunData(N, i, w, a, e, M):
 
     return [xs, ys, xv, yv, E, v, lonsun, r] 
 
-# calculate geocentric coordinates of planets
 def calculateGeocentric(xs, ys, xh, yh, zh):
+    """ Calculates geocentric coordinates of planets """
     
     xg = xh + xs
     yg = yh + ys

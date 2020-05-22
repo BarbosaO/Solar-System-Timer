@@ -4,8 +4,8 @@ from realtimeastronomy.calculator import calculateData, calculateJupiterPert, ca
 from realtimeastronomy import planets
 import math
 
-# function to reduce an angle to within 0 to +360 degrees
 def rev(angle):
+    """ Reduce an angle to within 0 to +360 degrees """
     while(angle <= 0 or angle >= 360):
         if(angle < 0):
             angle += 360
@@ -14,6 +14,7 @@ def rev(angle):
     return angle
 
 def calc():
+    """ Calculates initial date """
     # calculating UT and d
     currentDT = datetime.datetime.now()
     UT = currentDT.hour + (currentDT.minute / 60.0) + (currentDT.second / 3600)
