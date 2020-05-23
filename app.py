@@ -6,9 +6,9 @@ import time
 
 app = Flask(__name__)
 
-# initial routing to home page
 @app.route('/home')
 def index():
+    """ Routes to home page """
     calculations = calc()
     distanceList = [calculations[0][0], calculations[1][0], calculations[2][0], calculations[3][0], calculations[4][0], calculations[5][0], calculations[6][0]]
     currentTime = datetime.now()
@@ -17,6 +17,7 @@ def index():
 
 @app.route('/home', methods= ['GET','POST'])
 def home():
+    """ Updates data on display """
     # get initial calculations
     calculations = calc()
 
