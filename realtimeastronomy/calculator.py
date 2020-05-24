@@ -189,7 +189,7 @@ def calculateUranusPert(Mj, Ms, Mu, longitude, latitude, rh):
 
     # get current distance in miles
     rhMi = rh * milesPerAu
-
+    
     return [rhMi, xh, yh, zh]
 
 def calculateSunData(N, i, w, a, e, M):
@@ -208,6 +208,7 @@ def calculateSunData(N, i, w, a, e, M):
     lonsun = v + w
     lonsun = rev(lonsun)
 
+    # conversion to radians
     xs = r * math.cos(lonsun * toRadians())
     ys = r * math.sin(lonsun * toRadians())
 
